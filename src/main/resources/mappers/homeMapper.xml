@@ -37,7 +37,6 @@
 	<select id="getSearchInfor" resultType="com.spring.javagreenS_pjp.vo.RestaurantVO">
 		select *,(select bookMark from restaurantRecent where rsIdx = reset.idx and mid=#{mid}) as bookMarkOkNo 
 		from restaurant reset where restaurantName =#{restaurantName};
-
  	</select>
  	
 	<select id="getKakaoAddress" resultType="com.spring.javagreenS_pjp.vo.KakaoAddressVO">

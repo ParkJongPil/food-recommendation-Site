@@ -19,10 +19,5 @@ public interface NoticeService {
 	public void setNoUpdateOk(NoticeVO vo);
 
 	public void setDelete(int idx);
-
-
-
-		
-	
 	
 }

@@ -17,10 +17,6 @@
     		alert("공지사항 제목을 입력하세요");
     		myForm.noticeTitle.focus();
     	}
-/*      	else if(noticeContent.trim() == "") {
-    		alert("글내용을 입력하세요");
-    		myForm.noticeContent.focus();
-    	}  */
     	else {
     		myForm.submit();
     	}
@@ -34,40 +30,40 @@
   </style>
 </head>
 <body>
-<p><br></p>
-<div class="container">
-  <form name="myForm" method="post">
-	  <table class="table table-borderless">
-	    <tr>
-	      <td><h2>공지사항 글쓰기</h2></td>
-	    </tr>
-	  </table>
-	  <table class="table">
-	    <tr>
-	      <th>글 제목</th>
-	      <td><input type="text" name="noticeTitle" placeholder="제목을 입력하세요" class="form-control" autofocus required /></td>
-	    </tr>
-	    <tr>
-	      <th>글 내용</th>
-	      <td><textarea rows="6" name="noticeContent" id="CKEDITOR" class="form-control" required></textarea></td>
-	      <script>
-	      	CKEDITOR.replace("noticeContent",{
-	      		height:500,
-	      		filebrowserUploadUrl : "${ctp}/imageUpload",
-	      		uploadUrl : "${ctp}/imageUpload"
-	      	});
-	      </script>
-	    </tr>
-	    <tr>
-	      <td colspan="2" class="text-center">
-	        <input type="button" value="작성하기" onclick="fCheck()" class="btn btn-secondary"/> &nbsp;
-	        <input type="reset" value="다시 입력" class="btn btn-secondary"/> &nbsp;
-	        <input type="button" value="돌아가기" onclick="location.href='${ctp}/notice/noList';" class="btn btn-secondary"/>
-	      </td>
-	    </tr>
-	  </table>
-  </form>
-</div>
-<br/>
+	<p><br></p>
+	<div class="container">
+	  <form name="myForm" method="post">
+		  <table class="table table-borderless">
+		    <tr>
+		      <td><h2>공지사항 글쓰기</h2></td>
+		    </tr>
+		  </table>
+		  <table class="table">
+		    <tr>
+		      <th>글 제목</th>
+		      <td><input type="text" name="noticeTitle" placeholder="제목을 입력하세요" class="form-control" autofocus required /></td>
+		    </tr>
+		    <tr>
+		      <th>글 내용</th>
+		      <td><textarea rows="6" name="noticeContent" id="CKEDITOR" class="form-control" required></textarea></td>
+		      <script>
+		      	CKEDITOR.replace("noticeContent",{
+		      		height:500,
+		      		filebrowserUploadUrl : "${ctp}/imageUpload",
+		      		uploadUrl : "${ctp}/imageUpload"
+		      	});
+		      </script>
+		    </tr>
+		    <tr>
+		      <td colspan="2" class="text-center">
+		        <input type="button" value="작성하기" onclick="fCheck()" class="btn btn-secondary"/> &nbsp;
+		        <input type="reset" value="다시 입력" class="btn btn-secondary"/> &nbsp;
+		        <input type="button" value="돌아가기" onclick="location.href='${ctp}/notice/noList';" class="btn btn-secondary"/>
+		      </td>
+		    </tr>
+		  </table>
+	  </form>
+	</div>
+	<br/>
 </body>
 </html>

@@ -17,7 +17,6 @@ import com.google.gson.JsonParser;
 @Service
 public class KakaoServiceImpl implements KakaoService {
 	
-	
 	@SuppressWarnings("unused")
 	@Override
   public String getAccessToken(String code) {
@@ -69,7 +68,6 @@ public class KakaoServiceImpl implements KakaoService {
     return accessToken;
   }
 
-
   @Override
   public HashMap<String, Object> getUserInfor(String accessToken) {
     HashMap<String, Object> userInfor = new HashMap<String, Object>();
@@ -108,7 +106,6 @@ public class KakaoServiceImpl implements KakaoService {
     }
     return userInfor;
   }
-
 
   @Override
   public void kakaoLogout(String accessToken) {

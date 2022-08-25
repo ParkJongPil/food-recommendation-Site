@@ -12,8 +12,9 @@
 	<title>memUpdate.jsp</title>
 	<link rel="stylesheet" type="text/css" href="${ctp}/css/css.css"/>
 	<jsp:include page="/WEB-INF/views/include/2bs4.jsp"/>
-  	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-  	<script src="${ctp}/js/woo.js"></script>
+ 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+ 	<script src="${ctp}/js/woo.js"></script>
+ 	
 	<script>
 	'use strict';
   	let nickCheckSw = 0;
@@ -66,9 +67,9 @@
         myForm.email1.focus();
         return false;
       }
-        else {
-	    	  submitFlag = 1;
-	      }
+      else {
+   	  	submitFlag = 1;
+      }
     	
       if(tel2 != "" || tel3 != "") {
 	      if(!regTel.test(tel)) {
@@ -175,38 +176,39 @@
 		background:#BDBDBD;
 		color:black;
 	}
-</style>
+	</style>
+</head>
 <body>
-<div>
-	<jsp:include page="/WEB-INF/views/include/nav.jsp"/>
-</div>
-	<div class="container" style="border:15px solid #ff792a; border-radius:10px 10px 15px 15px; margin:126px auto; width:80%; height:100%; padding-left:13%; padding-top:50px">
-	 <form name="myForm" method="post" class="was-validated" action="${ctp}/member/memUpdateOk" enctype="multipart/form-data">
-		<h2>회원 정보 변경</h2>
-		<br/>
-		<div class="form-group" style="width:90%">
-			아이디: ${sMid}
-		</div>
-		<div class="form-group">
-			<label for="pwd">비밀번호: </label>
-			<input type="password" class="form-control" name="pwd" id="pwd" value="${sPwd}" required autofocus style="width:500px"/>
-		</div>
-		<div class="form-group">
+	<div>
+		<jsp:include page="/WEB-INF/views/include/nav.jsp"/>
+	</div>
+		<div class="container" style="border:15px solid #ff792a; border-radius:10px 10px 15px 15px; margin:126px auto; width:80%; height:100%; padding-left:13%; padding-top:50px">
+		 <form name="myForm" method="post" class="was-validated" action="${ctp}/member/memUpdateOk" enctype="multipart/form-data">
+			<h2>회원 정보 변경</h2>
+			<br/>
+			<div class="form-group" style="width:90%">
+				아이디: ${sMid}
+			</div>
+			<div class="form-group">
+				<label for="pwd">비밀번호: </label>
+				<input type="password" class="form-control" name="pwd" id="pwd" value="${sPwd}" required autofocus style="width:500px"/>
+			</div>
+			<div class="form-group">
 	      <label for="name">성명 :</label>
 	      <input type="text" class="form-control" id="name" name="name" value="${vo.name}" required style="width:500px"/>
-  	</div>
-		<div class="form-group">
-			<label for="nickName">닉네임</label>
-			<input type="text" class="form-control" name="nickName" id="nickName" value="${vo.nickName}" required style="width:500px"/>
-			<input type="button" value="중복확인" class="btn btn-secondary" onclick="nickCheck()"style="margin-left: 510px; margin-top: -68px; background:#eeee"/>
-		</div>
-		<div class="form-group" style="width:500px">
-			<label for="email1">이메일 :</label>
-			<div class="input-group mb-3">
-			  <c:set var="emails" value="${fn:split(vo.email,'@')}"/>
-			  <c:set var="email1" value="${emails[0]}"/>
-			  <c:set var="email2" value="${emails[1]}"/>
-			  <input type="text" class="form-control" value="${email1}" id="email1" name="email1" required />
+	  	</div>
+			<div class="form-group">
+				<label for="nickName">닉네임</label>
+				<input type="text" class="form-control" name="nickName" id="nickName" value="${vo.nickName}" required style="width:500px"/>
+				<input type="button" value="중복확인" class="btn btn-secondary" onclick="nickCheck()"style="margin-left: 510px; margin-top: -68px; background:#eeee"/>
+			</div>
+			<div class="form-group" style="width:500px">
+				<label for="email1">이메일 :</label>
+				<div class="input-group mb-3">
+				  <c:set var="emails" value="${fn:split(vo.email,'@')}"/>
+				  <c:set var="email1" value="${emails[0]}"/>
+				  <c:set var="email2" value="${emails[1]}"/>
+				  <input type="text" class="form-control" value="${email1}" id="email1" name="email1" required />
 				  <div class="input-group-append">
 				    <select name="email2" class="custom-select">
 					    <option value="naver.com" 	<c:if test="${email2=='naver.com'}">selected</c:if>>naver.com</option>
@@ -223,12 +225,12 @@
 				<div class="form-check-inline">
 					<span class="input-group-text">성별 :</span> &nbsp; &nbsp;
 					<label class="form-check-label">
-					<input type="radio" class="form-check-input" name="gender" value="남자" <c:if test="${vo.gender=='남자'}">checked</c:if>>남자
+						<input type="radio" class="form-check-input" name="gender" value="남자" <c:if test="${vo.gender=='남자'}">checked</c:if>>남자
 					</label>
 				</div>
 				<div class="form-check-inline">
 					<label class="form-check-label">
-					<input type="radio" class="form-check-input" name="gender" value="여자" <c:if test="${vo.gender=='여자'}">checked</c:if>>여자
+						<input type="radio" class="form-check-input" name="gender" value="여자" <c:if test="${vo.gender=='여자'}">checked</c:if>>여자
 					</label>
 				</div>
 			</div>
@@ -236,70 +238,70 @@
      	 <label for="birthday">생일</label>
 			 <input type="date" name="birthday" value="${fn:substring(vo.birthday,0,10)}" class="form-control" style="width:500px"/>
    		</div>
-			<div class="form-group" style="width:62%">
-				<div class="input-group mb-3" >
-					<div class="input-group-prepend">
-						<span class="input-group-text">전화번호 :</span>
-						<c:set var="tel" value="${fn:split(vo.tel,'-')}"/>
-						<c:set var="tel1" value="${tel[0]}"/>
-						<c:set var="tel2" value="${tel[1]}"/>
-						<c:set var="tel3" value="${tel[2]}"/>
-							<select name="tel1" class="custom-select">
-								<option value="010"	${tel1=="010" ? selected : ""}>010</option>
-								<option value="02"	${tel1=="02"  ? selected : ""}>서울</option>
-								<option value="031"	${tel1=="031" ? selected : ""}>경기</option>
-								<option value="032"	${tel1=="032" ? selected : ""}>인천</option>
-								<option value="041"	${tel1=="041" ? selected : ""}>충남</option>
-								<option value="042"	${tel1=="042" ? selected : ""}>대전</option>
-								<option value="043"	${tel1=="043" ? selected : ""}>충북</option>
-								<option value="051"	${tel1=="051" ? selected : ""}>부산</option>
-								<option value="052"	${tel1=="052" ? selected : ""}>울산</option>
-								<option value="061"	${tel1=="061" ? selected : ""}>전북</option>
-								<option value="062"	${tel1=="062" ? selected : ""}>광주</option>
-							</select>➖
-					</div>
-					<input type="text" name="tel2" value="${tel2}" size=4 maxlength=4 class="form-control"/>➖
-					<input type="text" name="tel3" value="${tel3}" size=4 maxlength=4 class="form-control"/>
-				</div> 
-			</div>
-	  	<div class="form-group" style=width:62%>
+				<div class="form-group" style="width:62%">
+					<div class="input-group mb-3" >
+						<div class="input-group-prepend">
+							<span class="input-group-text">전화번호 :</span>
+							<c:set var="tel" value="${fn:split(vo.tel,'-')}"/>
+							<c:set var="tel1" value="${tel[0]}"/>
+							<c:set var="tel2" value="${tel[1]}"/>
+							<c:set var="tel3" value="${tel[2]}"/>
+								<select name="tel1" class="custom-select">
+									<option value="010"	${tel1=="010" ? selected : ""}>010</option>
+									<option value="02"	${tel1=="02"  ? selected : ""}>서울</option>
+									<option value="031"	${tel1=="031" ? selected : ""}>경기</option>
+									<option value="032"	${tel1=="032" ? selected : ""}>인천</option>
+									<option value="041"	${tel1=="041" ? selected : ""}>충남</option>
+									<option value="042"	${tel1=="042" ? selected : ""}>대전</option>
+									<option value="043"	${tel1=="043" ? selected : ""}>충북</option>
+									<option value="051"	${tel1=="051" ? selected : ""}>부산</option>
+									<option value="052"	${tel1=="052" ? selected : ""}>울산</option>
+									<option value="061"	${tel1=="061" ? selected : ""}>전북</option>
+									<option value="062"	${tel1=="062" ? selected : ""}>광주</option>
+								</select>➖
+						</div>
+						<input type="text" name="tel2" value="${tel2}" size=4 maxlength=4 class="form-control"/>➖
+						<input type="text" name="tel3" value="${tel3}" size=4 maxlength=4 class="form-control"/>
+					</div> 
+				</div>
+		  	<div class="form-group" style=width:62%>
       		<label for="address">주소</label>
-				<input type="hidden" name="address" id="address">
-					<c:set var="address" value="${fn:split(vo.address,'/')}"/>
-					<c:set var="postcode" value="${address[0]}"/>
-					<c:set var="roadAddress" value="${address[1]}"/>
-					<c:set var="detailAddress" value="${address[2]}"/>
-					<c:set var="extraAddress" value="${address[3]}"/>
-				<div class="input-group mb-1">
-					<input type="text" name="postcode" id="sample6_postcode" value="${postcode}" placeholder="우편번호" class="form-control">
-					<div class="input-group-append">
-						<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="btn btn-secondary">
+					<input type="hidden" name="address" id="address">
+						<c:set var="address" value="${fn:split(vo.address,'/')}"/>
+						<c:set var="postcode" value="${address[0]}"/>
+						<c:set var="roadAddress" value="${address[1]}"/>
+						<c:set var="detailAddress" value="${address[2]}"/>
+						<c:set var="extraAddress" value="${address[3]}"/>
+					<div class="input-group mb-1">
+						<input type="text" name="postcode" id="sample6_postcode" value="${postcode}" placeholder="우편번호" class="form-control">
+						<div class="input-group-append">
+							<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="btn btn-secondary">
+						</div>
 					</div>
-				</div>
-				<input type="text" name="roadAddress" id="sample6_address" size="50" value="${roadAddress}" class="form-control mb-1">
-				<div class="input-group mb-1">
-					<input type="text" name="detailAddress" id="sample6_detailAddress" value="${detailAddress}" class="form-control"> &nbsp;&nbsp;
-					<div class="input-group-append">
-						<input type="text" name="extraAddress" id="sample6_extraAddress" value="${extraAddress}" class="form-control">
+					<input type="text" name="roadAddress" id="sample6_address" size="50" value="${roadAddress}" class="form-control mb-1">
+					<div class="input-group mb-1">
+						<input type="text" name="detailAddress" id="sample6_detailAddress" value="${detailAddress}" class="form-control"> &nbsp;&nbsp;
+						<div class="input-group-append">
+							<input type="text" name="extraAddress" id="sample6_extraAddress" value="${extraAddress}" class="form-control">
+						</div>
 					</div>
-				</div>
-    	</div>
-		<div class="form-group" style=width:62%>
+	    	</div>
+			<div class="form-group" style=width:62%>
     		회원 사진(파일용량:2MByte이내) :	<img src="${ctp}/member/${vo.photo}" width="80px"/>
     		<input type="file" name="fName" id="file" class="form-control-file border"/>
-   	</div>
-		<div class="form-group">
-			<button type="button" class="btn2 btn-secondary"  onclick="fCheck()" style= "width:166px;">회원 정보 수정</button>
-			<button type="reset"  class="btn2 btn-secondary" style= "width:166px;">다시작성</button>
-			<button type="button" class="btn2 btn-secondary"  onclick="location.href='${ctp}/';" style= "width:160px;">돌아가기</button>
-			<input type="hidden" name="email"/>
-			<input type="hidden" name="tel"/>
-			<input type="hidden" name="photo" value="${vo.photo}"/>
-			<input type="hidden" name="mid" value="${sMid}"/>
-		</div>
-	</form>
-  </div>
+	   	</div>
+			<div class="form-group">
+				<button type="button" class="btn2 btn-secondary"  onclick="fCheck()" style= "width:166px;">회원 정보 수정</button>
+				<button type="reset"  class="btn2 btn-secondary" style= "width:166px;">다시작성</button>
+				<button type="button" class="btn2 btn-secondary"  onclick="location.href='${ctp}/';" style= "width:160px;">돌아가기</button>
+				<input type="hidden" name="email"/>
+				<input type="hidden" name="tel"/>
+				<input type="hidden" name="photo" value="${vo.photo}"/>
+				<input type="hidden" name="mid" value="${sMid}"/>
+			</div>
+		</form>
+	  </div>
 	<p><br/></p>
-<jsp:include page="/WEB-INF/views/include/footer.jsp"/>
+	<jsp:include page="/WEB-INF/views/include/footer.jsp"/>
 </body>
 </html>

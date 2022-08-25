@@ -45,32 +45,32 @@
   </style>
 </head>
 <body>
-<p><br/></p>
-<div class="container">
-  <form name="myForm">
-	  <h2>QR코드 생성하기</h2>
-	  <hr/>
-	  <div>
-	    <h4>QR코드 체크시 이동할 주소를 입력후 QR코드를 생성해 주세요.</h4>
-	    <p>(소개하고 싶은 지역의 홈페이지 주소를 입력하세요.)</p>
-	  </div>
-	  <p>
-	    매장명 :  <input type="text" name="restaurantName">
-	  </p>
-	  <p>
-	    이동할 주소1 : <input type="text" name="moveUrl" value="http://49.142.157.251:9090/javagreenS_pjp/" size="30"/>
-	    <input type="button" value="qr코드 생성" onclick="qrCreate()" class="btn btn-primary btn-sm"/>
-	  </p>
-	  <hr/>
-	  <div id="qrCodeView" style="display:none">
-	    <h3>생성된 QR코드 확인하기</h3>
-	    <div>
-		  - 생성된 qr코드명 : <span id="qrView"></span><br/>
-		  <span id="qrImage"></span>
+	<p><br/></p>
+	<div class="container">
+	  <form name="myForm">
+		  <h2>QR코드 생성하기</h2>
+		  <hr/>
+		  <div>
+		    <h4>QR코드 체크시 이동할 주소를 입력후 QR코드를 생성해 주세요.</h4>
+		    <p>(소개하고 싶은 지역의 홈페이지 주소를 입력하세요.)</p>
 		  </div>
-	  </div>
-  </form>
-</div>
-<p><br/></p>
+		  <p>
+		    매장명 :  <input type="text" name="restaurantName">
+		  </p>
+		  <p>
+		    이동할 주소1 : <input type="text" name="moveUrl" value="http://49.142.157.251:9090/javagreenS_pjp/" size="30"/>
+		    <input type="button" value="qr코드 생성" onclick="qrCreate()" class="btn btn-primary btn-sm"/>
+		  </p>
+		  <hr/>
+		  <div id="qrCodeView" style="display:none">
+		    <h3>생성된 QR코드 확인하기</h3>
+		    <div>
+			  	- 생성된 qr코드명 : <span id="qrView"></span><br/>
+			  	<span id="qrImage"></span>
+			  </div>
+		  </div>
+	  </form>
+	</div>
+	<p><br/></p>
 </body>
 </html>

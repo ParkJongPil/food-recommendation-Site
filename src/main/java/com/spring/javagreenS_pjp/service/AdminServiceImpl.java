@@ -62,7 +62,6 @@ public class AdminServiceImpl implements AdminService {
 					oFileName = file.getOriginalFilename();
 					sFileName = saveFileName(oFileName);		//서버에 저장될 파일명을 결정
 
-//					System.out.println("sFileName  :" + sFileName);
 				}
 
 				writeFile(file,sFileName); 					// 서버에 파일 저장처리하기
@@ -71,7 +70,6 @@ public class AdminServiceImpl implements AdminService {
 				sFileNames += sFileName + "/";
 				fileSizes += file.getSize();
 			}
-//			System.out.println("oFileNames : " + oFileNames);
 			vo.setFName(oFileNames);
 			vo.setFSName(sFileNames);
 			vo.setFSize(fileSizes);
@@ -176,8 +174,6 @@ public class AdminServiceImpl implements AdminService {
 		String strUid = uid.toString().substring(0,4);
 		String qrCodeName = "";
 		
-//	  qrCodeName = vo.getRestaurantName() + "_" + vo.getMoveUrl() + "_" + strUid;
-//	  qrCodeName = vo.getRestaurantName() + "_" + strUid;
 	  qrCodeName = vo.getRestaurantName();
 	  try {
 	      File file = new File(uploadPath);		// qr코드 이미지를 저장할 디렉토리 지정

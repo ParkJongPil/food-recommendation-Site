@@ -123,10 +123,10 @@ public class MemberController {
 			//redirect.addAttribute("mid", mid);	// RedirectAttributes객체가 선언된 상태에서 model로 값을 넘길때는 값이 넘어가지 않는다.
 			return "redirect:/msg/memLoginOk";
 		}
-		else {
-			return "redirect:/msg/memLoginNo";
+			else {
+				return "redirect:/msg/memLoginNo";
+			}
 		}
-	}
 		
 	//로그인 인증처리2(카카오로그인 인증처리)
 	// 카카오에서 인증처리가 되었다면 이곳은 그대로 로그인처리 시켜준다.

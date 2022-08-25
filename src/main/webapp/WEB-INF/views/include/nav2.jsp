@@ -42,70 +42,70 @@
 </script>
 
 <style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-}
-
-.navbar {
-  overflow: hidden;
-  background-color:transparent; 
-  height:500px;
-  padding: 0.5rem 3rem;
-  
-}
-
-.navbar a {
-  float: right;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-}
-
-.subnav {
-  float:right;
-  overflow: hidden;
-}
-
-.subnav .subnavbtn {
-  font-size: 16px;  
-  outline: none;
-  color: white;
-  background-color: inherit;
-  font-family: inherit;
-  margin-top: 31%;
-  border:0px;
-}
-
-.navbar a:hover, .subnav:hover .subnavbtn {
-  background-color: gray;
-}
-
-.subnav-content {
-  display: none;
-  position: absolute;
-  right: 0;
-  background-color: gray;
-  width: -30%;
-  z-index: 1;
-}
-
-.subnav-content a {
-  color: black;
-  text-decoration: none;
-}
-
-.subnav-content a:hover {
-  background-color: gray;
-  color: black;
-}
-
-.subnav:hover .subnav-content {
-  display: block;
-}
-/*최근 맛집 리스트  */
-.city {display:none}
+	body {
+	  font-family: Arial, Helvetica, sans-serif;
+	  margin: 0;
+	}
+	
+	.navbar {
+	  overflow: hidden;
+	  background-color:transparent; 
+	  height:500px;
+	  padding: 0.5rem 3rem;
+	  
+	}
+	
+	.navbar a {
+	  float: right;
+	  font-size: 16px;
+	  color: white;
+	  text-align: center;
+	  text-decoration: none;
+	}
+	
+	.subnav {
+	  float:right;
+	  overflow: hidden;
+	}
+	
+	.subnav .subnavbtn {
+	  font-size: 16px;  
+	  outline: none;
+	  color: white;
+	  background-color: inherit;
+	  font-family: inherit;
+	  margin-top: 31%;
+	  border:0px;
+	}
+	
+	.navbar a:hover, .subnav:hover .subnavbtn {
+	  background-color: gray;
+	}
+	
+	.subnav-content {
+	  display: none;
+	  position: absolute;
+	  right: 0;
+	  background-color: gray;
+	  width: -30%;
+	  z-index: 1;
+	}
+	
+	.subnav-content a {
+	  color: black;
+	  text-decoration: none;
+	}
+	
+	.subnav-content a:hover {
+	  background-color: gray;
+	  color: black;
+	}
+	
+	.subnav:hover .subnav-content {
+	  display: block;
+	}
+	/*최근 맛집 리스트  */
+	.city {display:none}
 </style>
 
 <div class="w3-top">
@@ -194,8 +194,3 @@ body {
 	</div>
 </div>
 <!--모달 끝  -->
-
-
-  
-
-				

@@ -63,7 +63,5 @@ public interface HomeService {
 	public ReviewVO getReviewCntVo(String restaurantName);
 
 	public ArrayList<RestaurantVO> getFoodStory2();
-	
-	
 
 }

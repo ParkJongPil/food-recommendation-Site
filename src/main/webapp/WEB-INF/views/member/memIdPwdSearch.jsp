@@ -144,54 +144,56 @@
     color: #ff792a;
     text-decoration: none;
     background-color: transparent;
-}
+	}
 	</style>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/include/nav.jsp"/>
-<p><br/></p>
-<div class="container w3-border" style="margin-top:100px;">
-<form action="${ctp}/member/memIdSearchOk" method="post">
-  <h2>아이디 / 비밀번호 찾기</h2>
-  <br/><br/>
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active titleTab" data-toggle="tab" href="#idSearch" id="idTab">아이디찾기</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link titleTab" data-toggle="tab" href="#passwordSearch" id="pwdTab">비밀번호찾기</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link titleTab" href="memLogin.mem">돌아가기</a>
-    </li>
-  </ul>
-
-
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div id="idSearch" class="container tab-pane active"><br/>
-      <h4>아이디찾기</h4>
-        <div>회원가입시에 등록하셨던 <font color="#ff792a"><b>이메일 주소</b></font> 를 입력해주세요.</div>
-        <div class="input-group">
-        	<input type="text" name="email" id="idEmail" class="form-control m-1">
-        	<div><input type="button" value="아이디찾기" onclick="idSearch()" class="btn btn-primary input-group-append m-1"/></div>
-        </div> 
-    </div>
-    <div id="passwordSearch" class="container tab-pane fade"><br/>
-      <h4>비밀번호찾기</h4>
-      	<div>회원가입시에 등록하셨던 <font color="#ff792a"><b>아이디 / 이메일 주소</b></font> 를 입력해주세요.</div>
-        <div><input type="text" name="mid" id="pwdMid" placeholder="아이디를 입력하세요" class="form-control m-1"></div>
-        <div><input type="text" name="email" id="pwdEmail" placeholder="이메일 주소를 입력하세요" class="form-control m-1"></div>
-        <div><input type="button" value="비밀번호찾기" id="passwordBtn" onclick="pwdSearch()" class="btn btn-primary form-control m-1"/></div>
-    </div>
-  </div>
-  <hr/>
-  <div id="demo" class="container"></div>
-  <div class="container"><input type="button" value="로그인창으로 이동" onclick="location.href='${ctp}/member/memLogin';" class="btn2 btn-info form-control"/></div>
-</form>
-</div>
-<p><br/></p>
-<jsp:include page="/WEB-INF/views/include/footer.jsp"/>
+	<jsp:include page="/WEB-INF/views/include/nav.jsp"/>
+	<p><br/></p>
+	<div class="container w3-border" style="margin-top:100px;">
+		<form action="${ctp}/member/memIdSearchOk" method="post">
+		  <h2>아이디 / 비밀번호 찾기</h2>
+		  <br/><br/>
+		  <!-- Nav tabs -->
+		  <ul class="nav nav-tabs" role="tablist">
+		    <li class="nav-item">
+		      <a class="nav-link active titleTab" data-toggle="tab" href="#idSearch" id="idTab">아이디찾기</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link titleTab" data-toggle="tab" href="#passwordSearch" id="pwdTab">비밀번호찾기</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link titleTab" href="memLogin.mem">돌아가기</a>
+		    </li>
+		  </ul>
+		
+		
+		  <!-- Tab panes -->
+		  <div class="tab-content">
+		    <div id="idSearch" class="container tab-pane active"><br/>
+		      <h4>아이디찾기</h4>
+		        <div>회원가입시에 등록하셨던 <font color="#ff792a"><b>이메일 주소</b></font> 를 입력해주세요.</div>
+		        <div class="input-group">
+		        	<input type="text" name="email" id="idEmail" class="form-control m-1">
+		        	<div>
+		        		<input type="button" value="아이디찾기" onclick="idSearch()" class="btn btn-primary input-group-append m-1"/>
+		        	</div>
+		        </div> 
+		    </div>
+		    <div id="passwordSearch" class="container tab-pane fade"><br/>
+		      <h4>비밀번호찾기</h4>
+		      	<div>회원가입시에 등록하셨던 <font color="#ff792a"><b>아이디 / 이메일 주소</b></font> 를 입력해주세요.</div>
+		        <div><input type="text" name="mid" id="pwdMid" placeholder="아이디를 입력하세요" class="form-control m-1"></div>
+		        <div><input type="text" name="email" id="pwdEmail" placeholder="이메일 주소를 입력하세요" class="form-control m-1"></div>
+		        <div><input type="button" value="비밀번호찾기" id="passwordBtn" onclick="pwdSearch()" class="btn btn-primary form-control m-1"/></div>
+		    </div>
+		  </div>
+		  <hr/>
+		  <div id="demo" class="container"></div>
+		  <div class="container"><input type="button" value="로그인창으로 이동" onclick="location.href='${ctp}/member/memLogin';" class="btn2 btn-info form-control"/></div>
+		</form>
+	</div>
+	<p><br/></p>
+	<jsp:include page="/WEB-INF/views/include/footer.jsp"/>
 </body>
 </html>

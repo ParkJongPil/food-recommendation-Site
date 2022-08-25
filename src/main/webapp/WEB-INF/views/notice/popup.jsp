@@ -25,41 +25,35 @@
     	date.setDate(date.getDate() + expiredays);
     	document.cookie = escape(name) + "=" + escape(value) + "; expires="+date.toUTCString()+"; path=${ctp}";
     }
-    
-   /*  //공지사항 전체 보기
-    function notifyView() {
-    	opener.location.href = "${ctp}/notify/mnList";
-    	window.close();
-    } */
+   
   </script>
 </head>
 <body>
-<div class="modal-dialog modal-dialog-centered">
-  <div class="modal-content">
-
-    <!-- Modal Header -->
-    <div class="modal-header">
-      <h4 class="modal-title">${vo.noticeTitle}</h4>
-      <button type="button" class="close" onclick="window.close()">&times;</button>
-    </div>
-
-    <!-- Modal body -->
-    <div class="modal-body">
-      ${vo.noticeContent}
-    </div>
-    <hr/>
-    <div>
-      <p>공지사항 게시날짜</p>
-      <p>${vo.NDate}</p>
-    </div>
-		<hr/>
-    <!-- Modal footer -->
-    <div class="modal-footer">
-      <input type="checkbox" id="check" onclick="closePopup()">
-      <font size="3"><b>하루에 한번만 보기</b></font>
-      <!-- <b>☞ <a href="javascript:notifyView()">공지사항</a></b> -->
-    </div>
-  </div>
-</div>
+	<div class="modal-dialog modal-dialog-centered">
+	  <div class="modal-content">
+	
+	    <!-- Modal Header -->
+	    <div class="modal-header">
+	      <h4 class="modal-title">${vo.noticeTitle}</h4>
+	      <button type="button" class="close" onclick="window.close()">&times;</button>
+	    </div>
+	
+	    <!-- Modal body -->
+	    <div class="modal-body">
+	      ${vo.noticeContent}
+	    </div>
+	    <hr/>
+	    <div>
+	      <p>공지사항 게시날짜</p>
+	      <p>${vo.NDate}</p>
+	    </div>
+			<hr/>
+	    <!-- Modal footer -->
+	    <div class="modal-footer">
+	      <input type="checkbox" id="check" onclick="closePopup()">
+	      <font size="3"><b>하루에 한번만 보기</b></font>
+	    </div>
+	  </div>
+	</div>
 </body>
 </html>

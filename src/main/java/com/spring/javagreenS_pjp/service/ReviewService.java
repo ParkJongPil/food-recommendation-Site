@@ -10,6 +10,4 @@ public interface ReviewService {
 
 	public List<ReviewVO> getReview(String restaurantName);
 
-
-
 }

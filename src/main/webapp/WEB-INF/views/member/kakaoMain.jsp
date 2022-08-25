@@ -12,18 +12,18 @@
   </script>
 </head>
 <body>
-<p><br/></p>
-<div class="container">
-  <h2>이곳은 kakaoMain.jsp 입니다.</h2>
-  <hr/>
-  <p>
-    닉네임 : ${nickname}<br/>메일주소 : ${email}<br/>
-  </p>
-  <hr/>
-  <p>
-    <a href="${ctp}/kakao/kakaoLogout" class="btn btn-danger">Logout</a>
-  </p>
-</div>
-<p><br/></p>
+	<p><br/></p>
+	<div class="container">
+	  <h2>이곳은 kakaoMain.jsp 입니다.</h2>
+	  <hr/>
+	  <p>
+	    닉네임 : ${nickname}<br/>메일주소 : ${email}<br/>
+	  </p>
+	  <hr/>
+	  <p>
+	    <a href="${ctp}/kakao/kakaoLogout" class="btn btn-danger">Logout</a>
+	  </p>
+	</div>
+	<p><br/></p>
 </body>
 </html>

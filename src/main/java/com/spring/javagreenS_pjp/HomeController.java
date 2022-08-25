@@ -53,35 +53,35 @@ public class HomeController {
 	PageProcess pageProcess;
 	
 	// 인기 검색어
-		@RequestMapping(value = "/", method = RequestMethod.GET)
-		public String home(Model model, HttpSession session) {
-			String mid = (String) session.getAttribute("sMid");
-			ArrayList<KeywordVO> pVos = homeService.getPopularSearch();							// 인기 검색
-			ArrayList<KeywordVO> rVos = homeService.getRecentSearch();							// 최근 검색
-			ArrayList<RestaurantVO> fVos = homeService.getKeywordSearch();					// 믿고 보는 맛집 리스트
-			ArrayList<RestaurantVO> fVos2 = homeService.getKeywordSearch2();				// 맛집 스토리
-			ArrayList<RestaurantVO> sVos = homeService.getFoodStory();							// 에디터가 선정한 식당
-			ArrayList<RestaurantVO> sVos2 = homeService.getFoodStory2();						// TV에 나온 식당
-			
-			ArrayList<RestaurantVO> rcVos = homeService.getRestaurantRecentList(mid); 			// 최근 본 맛집 리스트, 즐겨찾기 맛집 리스트
-			ArrayList<RestaurantVO> rcVos2 = homeService.getRestaurantBookMarkList(mid); 		// 즐겨찾기 맛집 리스트
-			
-			// 첫화면에 공지사항 팝업으로 띄우기
-			List<NoticeVO> popupVos = noticeService.getNotifyPopup();
-			
-			model.addAttribute("popupVos", popupVos);
-			session.setAttribute("rCount", rcVos.size());
-			model.addAttribute("pVos",pVos);
-			model.addAttribute("rVos",rVos);
-			model.addAttribute("sVos",sVos);
-			model.addAttribute("sVos2",sVos2);
-			session.setAttribute("rcVos",rcVos); 
-			session.setAttribute("rcVos2",rcVos2); 
-			model.addAttribute("fVos",fVos);
-			model.addAttribute("fVos2",fVos2);
-			
-			return "main/main";
-		}
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String home(Model model, HttpSession session) {
+		String mid = (String) session.getAttribute("sMid");
+		ArrayList<KeywordVO> pVos = homeService.getPopularSearch();							// 인기 검색
+		ArrayList<KeywordVO> rVos = homeService.getRecentSearch();							// 최근 검색
+		ArrayList<RestaurantVO> fVos = homeService.getKeywordSearch();					// 믿고 보는 맛집 리스트
+		ArrayList<RestaurantVO> fVos2 = homeService.getKeywordSearch2();				// 맛집 스토리
+		ArrayList<RestaurantVO> sVos = homeService.getFoodStory();							// 에디터가 선정한 식당
+		ArrayList<RestaurantVO> sVos2 = homeService.getFoodStory2();						// TV에 나온 식당
+		
+		ArrayList<RestaurantVO> rcVos = homeService.getRestaurantRecentList(mid); 			// 최근 본 맛집 리스트, 즐겨찾기 맛집 리스트
+		ArrayList<RestaurantVO> rcVos2 = homeService.getRestaurantBookMarkList(mid); 		// 즐겨찾기 맛집 리스트
+		
+		// 첫화면에 공지사항 팝업으로 띄우기
+		List<NoticeVO> popupVos = noticeService.getNotifyPopup();
+		
+		model.addAttribute("popupVos", popupVos);
+		session.setAttribute("rCount", rcVos.size());
+		model.addAttribute("pVos",pVos);
+		model.addAttribute("rVos",rVos);
+		model.addAttribute("sVos",sVos);
+		model.addAttribute("sVos2",sVos2);
+		session.setAttribute("rcVos",rcVos); 
+		session.setAttribute("rcVos2",rcVos2); 
+		model.addAttribute("fVos",fVos);
+		model.addAttribute("fVos2",fVos2);
+		
+		return "main/main";
+	}
 		
 
 	// 검색어 입력시 조회하기
@@ -103,7 +103,6 @@ public class HomeController {
 		ArrayList<RestaurantVO> kVos = homeService.getKeywordSearch();
 		ArrayList<RestaurantVO> rcVos = homeService.getRestaurantRecentList(mid); 			// 최근 본 맛집 리스트
 		ArrayList<RestaurantVO> rcVos2 = homeService.getRestaurantBookMarkList(mid); 		// 즐겨찾기 맛집 리스트
-		
 		
 		model.addAttribute("rcVos",rcVos); 
 		model.addAttribute("rcVos2",rcVos2); 
@@ -133,7 +132,6 @@ public class HomeController {
 		
 		ArrayList<RestaurantVO> searchVos = homeService.getSearchList(pageVO.getStartIndexNo(), pageSize,searchString);										//등록된 맛집 리스트 보여주기
 		ArrayList<RestaurantVO> kVos = homeService.getKeywordSearch();
-		
 		
 		model.addAttribute("filterVos",filterVos);
 		model.addAttribute("kVos",kVos);
@@ -166,11 +164,8 @@ public class HomeController {
 		KakaoAddressVO kVo = homeService.getKakaoAddress(iVo.getRestaurantName());	// 카카오 주소 보여주기
 		
 		List<ReviewVO> rVos = reviewService.getReview(iVo.getRestaurantName());		// 리뷰 글 보여주기
-
-		
 		 		
 		ArrayList<RestaurantVO> searchVos = homeService.getSearchList(pageVO.getStartIndexNo(), pageSize,searchString);										//등록된 맛집 리스트 보여주기
-		
 		
 		// 조회수 증가(조회수 중복방지처리)
 		ArrayList<String> restaurantIdx = (ArrayList) session.getAttribute("sRestaurantIdx");

@@ -31,23 +31,23 @@ alter table restaurant add column hashTag varchar(200) not null
 
 	create table foodMenu(
 		idx int not null auto_increment primary key,
-		foodName varchar(100) not null,						/* 음식이름 */
-		foodCategory varchar(100) not null,					/* 음식종류 */
-		foodPrice varchar(100) not null 					/* 음식가격 */
+		foodName varchar(100) not null,												/* 음식이름 */
+		foodCategory varchar(100) not null,										/* 음식종류 */
+		foodPrice varchar(100) not null 											/* 음식가격 */
 	);
 	
-	create table restaurantCategory(						/*식당에서 판매하는 메뉴 테이블 */
+	create table restaurantCategory(												/*식당에서 판매하는 메뉴 테이블 */
 		idx int not null auto_increment primary key,
 		restaurantName  varchar(100) not null,
-		foodName varchar(100) not null,						/* 음식이름*/
-		foodPrice varchar(100) not null 					/* 음식가격 */
+		foodName varchar(100) not null,												/* 음식이름*/
+		foodPrice varchar(100) not null 											/* 음식가격 */
 	);
 	
-	create table restaurantRecent(						/* 식당 리스트 저장 테이블 */
+	create table restaurantRecent(													/* 식당 리스트 저장 테이블 */
 		idx int not null auto_increment primary key,
-		rsIdx int not null,										/* 식당 고유 번호*/
-		mid	varchar(30) not null,					/* 회원 아이디 */
-		bookMark varchar(5) not null default 'NO',				/* 즐겨찾기한 식당 목록 */
+		rsIdx int not null,																		/* 식당 고유 번호*/
+		mid	varchar(30) not null,															/* 회원 아이디 */
+		bookMark varchar(5) not null default 'NO',						/* 즐겨찾기한 식당 목록 */
 		foreign key(rsIdx) references restaurant(idx)
 	);
 		/*foreign key(memMid) references member2(mid)*/

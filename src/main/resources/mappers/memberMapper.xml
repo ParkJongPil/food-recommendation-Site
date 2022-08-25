@@ -2,67 +2,68 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.spring.javagreenS_pjp.dao.MemberDAO">
 
-  <select id="getMemIdCheck" resultType="com.spring.javagreenS_pjp.vo.MemberVO">
-  	select * from member2 where mid = #{mid};	<!--회원 아이디 중복 체크  -->
-  </select>
- 
- <select id="getNickNameCheck" resultType="com.spring.javagreenS_pjp.vo.MemberVO">
- 	select * from member2 where nickName = #{nickName}; <!--회원 닉네임 중복 체크  -->
- </select> 
- 
- <select id="getMemIdEmailCheck" resultType="com.spring.javagreenS_pjp.vo.MemberVO">
- 	select * from member2 where mid = #{mid} and email = #{toMail};	
- </select>
- <select id="getMemIdSearchOk" resultType="com.spring.javagreenS_pjp.vo.MemberVO">
- 	select * from member2 where email = #{email};
- </select>
- 
- <select id="getMemList" resultType="com.spring.javagreenS_pjp.vo.MemberVO">
- 	select * from member2 order by idx desc limit #{startIndexNo}, #{pageSize};
- </select>
- 
- <select id="totRecCnt" resultType="int">
- 	select count(*) from member2;
- </select>
- 
- <select id="getTodayVisitDate" resultType="String">
-    SELECT substring(visitDate,1,10) as visitDate FROM visit ORDER BY visitDate DESC LIMIT 1;
-  </select>
-  
-  <select id="getMemEmailCheck" resultType="com.spring.javagreenS_pjp.vo.MemberVO">
-    select * from member2 where email = #{email} limit 1;
-  </select>
- 
-  <insert id="setMemInputOk">
-  insert into member2 values(default,#{vo.mid},#{vo.pwd},#{vo.name},#{vo.nickName},#{vo.gender},#{vo.birthday},#{vo.tel},#{vo.address},#{vo.email},default,default,default,default,#{vo.photo});
- </insert>
- 
-  <insert id="setTodayVisitCountInsert">
-    insert into visit values (date(now()),default);
-  </insert>
-  
-  <insert id="setKakaoMemberInputOk">
+	<select id="getMemIdCheck" resultType="com.spring.javagreenS_pjp.vo.MemberVO">
+		select * from member2 where mid = #{mid};	<!--회원 아이디 중복 체크  -->
+	</select>
+	
+	<select id="getNickNameCheck" resultType="com.spring.javagreenS_pjp.vo.MemberVO">
+		select * from member2 where nickName = #{nickName}; <!--회원 닉네임 중복 체크  -->
+	</select> 
+	
+	<select id="getMemIdEmailCheck" resultType="com.spring.javagreenS_pjp.vo.MemberVO">
+		select * from member2 where mid = #{mid} and email = #{toMail};	
+	</select>
+	
+	<select id="getMemIdSearchOk" resultType="com.spring.javagreenS_pjp.vo.MemberVO">
+		select * from member2 where email = #{email};
+	</select>
+	
+	<select id="getMemList" resultType="com.spring.javagreenS_pjp.vo.MemberVO">
+		select * from member2 order by idx desc limit #{startIndexNo}, #{pageSize};
+	</select>
+	
+	<select id="totRecCnt" resultType="int">
+		select count(*) from member2;
+	</select>
+	
+	<select id="getTodayVisitDate" resultType="String">
+	   SELECT substring(visitDate,1,10) as visitDate FROM visit ORDER BY visitDate DESC LIMIT 1;
+	</select>
+	 
+	 <select id="getMemEmailCheck" resultType="com.spring.javagreenS_pjp.vo.MemberVO">
+	   select * from member2 where email = #{email} limit 1;
+	 </select>
+	
+	 <insert id="setMemInputOk">
+	 	insert into member2 values(default,#{vo.mid},#{vo.pwd},#{vo.name},#{vo.nickName},#{vo.gender},#{vo.birthday},#{vo.tel},#{vo.address},#{vo.email},default,default,default,default,#{vo.photo});
+	</insert>
+	
+	<insert id="setTodayVisitCountInsert">
+	  insert into visit values (date(now()),default);
+	</insert>
+	 
+	 <insert id="setKakaoMemberInputOk">
 	  insert into member2 values(default,#{mid},#{pwd},#{nickName},#{nickName},default,default,'000-0000-0000',' / / / /',#{email},default,default,default,default,default);
 	</insert>
 	
- <update id="setPwdChange">
- 	update member2 set pwd = #{pwd} where mid = #{mid};
- </update>
- 
- <update id="setMemUpdateOk">
-  update member2 set pwd=#{vo.pwd},name=#{vo.name},nickName=#{vo.nickName},email=#{vo.email},gender=#{vo.gender},birthday=#{vo.birthday},tel=#{vo.tel},address=#{vo.address},photo=#{vo.photo} where mid=#{vo.mid};
-  </update>
- 
- <update id="setMemDeleteOk">
-  update member2 set userDel ='OK' where mid = #{mid};
- </update>
- 
-  <update id="setTodayVisitCountUpdate">
-    update visit set visitCount = visitCount + 1 where substring(visitDate,1,10) = #{strToday};
-  </update>
-  
-   <update id="setMemberVisitProcess">
-    update member2 set lastDate=now() where mid = #{mid};
-  </update>
+	<update id="setPwdChange">
+		update member2 set pwd = #{pwd} where mid = #{mid};
+	</update>
+	
+	<update id="setMemUpdateOk">
+	 	update member2 set pwd=#{vo.pwd},name=#{vo.name},nickName=#{vo.nickName},email=#{vo.email},gender=#{vo.gender},birthday=#{vo.birthday},tel=#{vo.tel},address=#{vo.address},photo=#{vo.photo} where mid=#{vo.mid};
+	 </update>
+	
+	<update id="setMemDeleteOk">
+		 update member2 set userDel ='OK' where mid = #{mid};
+	</update>
+	
+	<update id="setTodayVisitCountUpdate">
+	  update visit set visitCount = visitCount + 1 where substring(visitDate,1,10) = #{strToday};
+	</update>
+	 
+	 <update id="setMemberVisitProcess">
+	  update member2 set lastDate=now() where mid = #{mid};
+	</update>
  
 </mapper>

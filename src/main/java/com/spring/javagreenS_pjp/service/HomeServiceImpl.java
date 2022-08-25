@@ -150,6 +150,4 @@ public class HomeServiceImpl implements HomeService {
 		return homeDAO.getFoodStory2();
 	}
 
-
-
 }

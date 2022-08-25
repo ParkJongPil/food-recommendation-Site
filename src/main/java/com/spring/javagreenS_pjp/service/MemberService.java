@@ -42,5 +42,4 @@ public interface MemberService {
 
 	public void setKakaoMemberInputOk(String mid, String pwd, String nickName, String email);
 
-
 }

@@ -7,7 +7,6 @@
 	</insert>
 	
 	<select id="getReview" resultType="com.spring.javagreenS_pjp.vo.ReviewVO">	<!--음식점 이름이 같을 경우에만 리뷰 불러오기  -->
-<!-- 		select * from review where restaurantName; -->
-	select * from review as rc left join restaurant as r on rc.restaurantName = r.restaurantName where rc.restaurantName = #{restaurantName} order by rc.idx desc limit 10;
+		select * from review as rc left join restaurant as r on rc.restaurantName = r.restaurantName where rc.restaurantName = #{restaurantName} order by rc.idx desc limit 10;
 	</select>
 </mapper>

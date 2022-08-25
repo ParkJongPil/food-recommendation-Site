@@ -39,37 +39,36 @@
   </script>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/include/nav.jsp"/>
-<p><br/></p>
-<div class="container" class="p-3">
-	<div id="noticeContent">
-		<h1 style="text-align:center; font-size: 1.8rem; color: #ff792a; margin-bottom: 30px; line-height: 2rem;">공지사항 리스트</h1>
-		<c:forEach var="vo" items="${nVos}" varStatus="st">
-			<div class="a${st.index}" >
-				<div style="width:100%; float: left;  margin-top: 3%; padding-top: 2%;">
-					<span style = "font-size:18px">${vo.noticeTitle}</span><br/>
-					<span style="color: blue; font-size: 0.7rem;">${fn:substring(vo.NDate,0,10)}</span>
-					<div style="float:right">
-						<img src="${ctp}/images/arrow.png" style="margin-bottom:20px" onclick="arrowToggle(${st.index})"/>
+	<jsp:include page="/WEB-INF/views/include/nav.jsp"/>
+	<p><br/></p>
+	<div class="container" class="p-3">
+		<div id="noticeContent">
+			<h1 style="text-align:center; font-size: 1.8rem; color: #ff792a; margin-bottom: 30px; line-height: 2rem;">공지사항 리스트</h1>
+			<c:forEach var="vo" items="${nVos}" varStatus="st">
+				<div class="a${st.index}" >
+					<div style="width:100%; float: left;  margin-top: 3%; padding-top: 2%;">
+						<span style = "font-size:18px">${vo.noticeTitle}</span><br/>
+						<span style="color: blue; font-size: 0.7rem;">${fn:substring(vo.NDate,0,10)}</span>
+						<div style="float:right">
+							<img src="${ctp}/images/arrow.png" style="margin-bottom:20px" onclick="arrowToggle(${st.index})"/>
+						</div>
 					</div>
+					<c:if test="${sMid=='admin'}">
+						<button type="button" value="작성" class="btn btn-danger" style="color: #fff; background-color: #ff792a; border-color: rgb(0 0 0 / 8%);"onclick="location.href='${ctp}/notice/noInput';">작성</button>
+					</c:if>
+					<c:if test="${sMid=='admin'}">
+						<button type="button" value="수정" class="btn btn-danger" style="color: #fff; background-color: #ff792a; border-color: rgb(0 0 0 / 8%);"onclick="location.href='${ctp}/notice/noUpdate?idx=${vo.idx}';">수정</button>
+					</c:if>
+					<c:if test="${sMid=='admin'}">
+						<button type="button" value="삭제" class="btn btn-danger" style="color: #fff; background-color: #ff792a; border-color: rgb(0 0 0 / 8%);"onclick="nDelCheck('${vo.idx}')">삭제</button>
+					</c:if>
 				</div>
-				<c:if test="${sMid=='admin'}">
-					<button type="button" value="작성" class="btn btn-danger" style="color: #fff; background-color: #ff792a; border-color: rgb(0 0 0 / 8%);"onclick="location.href='${ctp}/notice/noInput';">작성</button>
-				</c:if>
-				<c:if test="${sMid=='admin'}">
-					<button type="button" value="수정" class="btn btn-danger" style="color: #fff; background-color: #ff792a; border-color: rgb(0 0 0 / 8%);"onclick="location.href='${ctp}/notice/noUpdate?idx=${vo.idx}';">수정</button>
-				</c:if>
-				<c:if test="${sMid=='admin'}">
-					<button type="button" value="삭제" class="btn btn-danger" style="color: #fff; background-color: #ff792a; border-color: rgb(0 0 0 / 8%);"onclick="nDelCheck('${vo.idx}')">삭제</button>
-				</c:if>
-			</div>
-		<div class="b${st.index}" style="display:none;">
-			<p>${vo.noticeContent}</p>
+				<div class="b${st.index}" style="display:none;">
+					<p>${vo.noticeContent}</p>
+				</div>
+			</c:forEach>
 		</div>
-		</c:forEach>
 	</div>
-</div>
-
-<p><br/></p>
+	<p><br/></p>
 </body>
 </html>

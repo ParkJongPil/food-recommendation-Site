@@ -29,4 +29,5 @@
 	<delete id="setDelete">
 		delete from notice where idx = #{idx};
 	</delete>
+	
 </mapper>

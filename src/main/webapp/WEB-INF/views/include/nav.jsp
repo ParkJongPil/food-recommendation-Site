@@ -4,108 +4,108 @@
 <c:set var="ctp" value="${pageContext.request.contextPath}"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
-'use strict';
-	function memDeleteCheck() {
-		let ans = confirm("회원 탈퇴를 하시겠습니까?");
-		if(!ans) return false;
-		else location.href ="${ctp}/member/memDeleteOk";
-	}
-	/* When the user clicks on the button, 
-	toggle between hiding and showing the dropdown content */
-	function myFunction() {
-	  document.getElementById("myDropdown").classList.toggle("show");
-	}
-
-	// Close the dropdown if the user clicks outside of it
-	window.onclick = function(event) {
-	  if (!event.target.matches('.dropbtn')) {
-	    var dropdowns = document.getElementsByClassName("dropdown-content");
-	    var i;
-	    for (i = 0; i < dropdowns.length; i++) {
-	      var openDropdown = dropdowns[i];
-	      if (openDropdown.classList.contains('show')) {
-	        openDropdown.classList.remove('show');
-	      }
-	    }
-	  }
-	}
-	
-	function delcheck() {
-		let ans = confirm("최근 식당 리스트를 전체 삭제 하시겠습니까?");
-		if(ans) {
-			location.href="${ctp}/recentListDel?size=${rCount}";
+	'use strict';
+		function memDeleteCheck() {
+			let ans = confirm("회원 탈퇴를 하시겠습니까?");
+			if(!ans) return false;
+			else location.href ="${ctp}/member/memDeleteOk";
 		}
-	}
+		/* When the user clicks on the button, 
+		toggle between hiding and showing the dropdown content */
+		function myFunction() {
+		  document.getElementById("myDropdown").classList.toggle("show");
+		}
+	
+		// Close the dropdown if the user clicks outside of it
+		window.onclick = function(event) {
+		  if (!event.target.matches('.dropbtn')) {
+		    var dropdowns = document.getElementsByClassName("dropdown-content");
+		    var i;
+		    for (i = 0; i < dropdowns.length; i++) {
+		      var openDropdown = dropdowns[i];
+		      if (openDropdown.classList.contains('show')) {
+		        openDropdown.classList.remove('show');
+		      }
+		    }
+		  }
+		}
+		
+		function delcheck() {
+			let ans = confirm("최근 식당 리스트를 전체 삭제 하시겠습니까?");
+			if(ans) {
+				location.href="${ctp}/recentListDel?size=${rCount}";
+			}
+		}
 </script>
 
 <style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-}
-
-.navbar {
-  overflow: hidden;
-  background-color:transparent;
-  padding:0.5rem 3rem;
-  border-bottom: 1px solid #DBDBDB;
-  box-sizing: border-box;
-  height:90px;
-}
-
-.navbar a {
-  float: right;
-  font-size: 16px;
-  color: #888888;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.subnav {
-  float:right;
-  overflow: hidden;
-}
-
-.subnav .subnavbtn {
-  font-size: 16px;  
-  outline: none;
-  color: white;
-  background-color: inherit; 
-  font-family: inherit;
-  margin-top: 31%;
-  border:0px;
-  color: #212529;
-}
-
-.navbar a:hover, .subnav:hover .subnavbtn {
-  background-color: gray;
-}
-
-.subnav-content {
-  display: none;
-  position: absolute;
-  right: 0;
-  background-color: gray;
-  width: -30%;
-  z-index: 1;
-}
-
-.subnav-content a {
-  color: black;
-  text-decoration: none;
-}
-
-.subnav-content a:hover {
-  background-color: gray;
-  color: black;
-}
-
-.subnav:hover .subnav-content {
-  display: block;
-}
-/*최근 맛집 리스트  */
-.city {display:none}
+	body {
+	  font-family: Arial, Helvetica, sans-serif;
+	  margin: 0;
+	}
+	
+	.navbar {
+	  overflow: hidden;
+	  background-color:transparent;
+	  padding:0.5rem 3rem;
+	  border-bottom: 1px solid #DBDBDB;
+	  box-sizing: border-box;
+	  height:90px;
+	}
+	
+	.navbar a {
+	  float: right;
+	  font-size: 16px;
+	  color: #888888;
+	  text-align: center;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	}
+	
+	.subnav {
+	  float:right;
+	  overflow: hidden;
+	}
+	
+	.subnav .subnavbtn {
+	  font-size: 16px;  
+	  outline: none;
+	  color: white;
+	  background-color: inherit; 
+	  font-family: inherit;
+	  margin-top: 31%;
+	  border:0px;
+	  color: #212529;
+	}
+	
+	.navbar a:hover, .subnav:hover .subnavbtn {
+	  background-color: gray;
+	}
+	
+	.subnav-content {
+	  display: none;
+	  position: absolute;
+	  right: 0;
+	  background-color: gray;
+	  width: -30%;
+	  z-index: 1;
+	}
+	
+	.subnav-content a {
+	  color: black;
+	  text-decoration: none;
+	}
+	
+	.subnav-content a:hover {
+	  background-color: gray;
+	  color: black;
+	}
+	
+	.subnav:hover .subnav-content {
+	  display: block;
+	}
+	/*최근 맛집 리스트  */
+	.city {display:none}
 </style>
 <div class="w3-top">
 	<div class="navbar w3-white" style="display: block">
@@ -116,9 +116,9 @@ body {
 		    </button>
 		    <div class="number" style="text-align:center;">
 					<span style="color:white;" onclick="javascript:mainRecent(idx)">
-							<button type="button"  class="w3-top" onclick="document.getElementById('id01').style.display='block'" style="border: 0px; border-radius: 50%; color: white; background-color: #ff792a; width:28px;">${rCount}</button>
+						<button type="button"  class="w3-top" onclick="document.getElementById('id01').style.display='block'" style="border: 0px; border-radius: 50%; color: white; background-color: #ff792a; width:28px;">${rCount}</button>
 					<c:if test="${sMid == null}">
-							<button type="button" class="w3-top" onclick="document.getElementById('id01').style.display='block'" style="border: 0px; border-radius: 50%; color: white; background-color: #ff792a; width:28px;">0</button>
+						<button type="button" class="w3-top" onclick="document.getElementById('id01').style.display='block'" style="border: 0px; border-radius: 50%; color: white; background-color: #ff792a; width:28px;">0</button>
 					</c:if>
 					</span>
 		    </div>
@@ -160,11 +160,10 @@ body {
 				</div>
 			</form>
 		</div>
-		
-		
-<!-- 		검색창 구현끝		 -->
 	</div>
 </div>
+		
+<!-- 		검색창 구현끝		 -->
 <div id="id01" class="w3-modal">
   <div class="w3-modal-content w3-border w3-round-xlarge" style="width:540px; margin-right:13px;">
 		<table class="table">
@@ -177,16 +176,16 @@ body {
 		        <input type="button" value="X Clear All" onclick="delcheck()" class="btn btn-danger w3-right">
 		        <p><br/></p>
 		        <c:forEach var="vo" items="${rcVos}">
-		        <c:set var="bgImage" value="${fn:split(vo.FSName,'/')}" />
-							<a href="${ctp}/restaurantInfor?restaurantName=${vo.restaurantName}&idx=${vo.idx}"><img alt="" src="${ctp}/data/foodImages/${bgImage[0]}" style="width:190px; height:130px;"/></a>
-				      <div class="menu">${vo.restaurantName}</div>
-				      <div>${vo.foodCategory}</div>
-				      <p class="w3-border-bottom"></p>
+			        <c:set var="bgImage" value="${fn:split(vo.FSName,'/')}" />
+								<a href="${ctp}/restaurantInfor?restaurantName=${vo.restaurantName}&idx=${vo.idx}"><img alt="" src="${ctp}/data/foodImages/${bgImage[0]}" style="width:190px; height:130px;"/></a>
+					      <div class="menu">${vo.restaurantName}</div>
+					      <div>${vo.foodCategory}</div>
+					      <p class="w3-border-bottom"></p>
 		        </c:forEach>	
 		      </div>
 		    </td>
-		    <td>
   		<!--즐겨찾기 맛집 리스트  -->
+		    <td>
 					<div class="w3-container w3-panel">
 						<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
 						<h2>즐겨찾기 맛집</h2>
@@ -204,14 +203,3 @@ body {
 		</table>
 	</div>
 </div>
-
-  
-
-
-
-  
-  
-  
-  
-
-				
