@@ -59,7 +59,7 @@
     	</tr>
     	<c:set var="curScrStartNo" value="${curScrStartNo-1}"/>
     </c:forEach>
-    <tr><td colspan="3"></td></tr>
+    <tr><td colspan="5"></td></tr>
   </table>
 </div>
 <!-- 블록 페이징 처리 시작 -->

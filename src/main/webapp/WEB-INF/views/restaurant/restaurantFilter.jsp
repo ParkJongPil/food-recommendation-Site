@@ -102,7 +102,7 @@
 	    
 	      <div class="clearfix">
 	        <button type="button" onclick="javascript:filterCheck()">적용</button>
-	        <button type="button" onclick="${ctp}/" class="cancelbtn">취소</button>
+	        <button type="button" onclick="location.href=${ctp}/" class="cancelbtn">취소</button>
 	      </div>
 	    </div>
 		</form>
