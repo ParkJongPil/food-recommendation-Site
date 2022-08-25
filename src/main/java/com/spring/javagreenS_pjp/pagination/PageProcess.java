@@ -28,6 +28,9 @@ public class PageProcess {
 		else if(section.equals("mainSearch")) {
 			totRecCnt = homeDAO.totRecCnt(searchString);
 		}
+		else if(section.equals("restaurant")) {
+			totRecCnt = homeDAO.totRecCnt(searchString);
+		}
 		
 		int totPage = (totRecCnt % pageSize)==0 ? totRecCnt/pageSize : (totRecCnt/pageSize)+1;
 		int startIndexNo = (pag - 1) * pageSize;

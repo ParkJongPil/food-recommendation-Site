@@ -78,7 +78,7 @@ public class AdminController {
 		@RequestParam(name ="pag" , defaultValue = "1", required=false) int pag,
 		@RequestParam(name ="pageSize",defaultValue = "5", required=false) int pageSize) {
 		
-		PageVO pageVO = pageProcess.totRecCnt(pag,pageSize,"member","","");
+		PageVO pageVO = pageProcess.totRecCnt(pag,pageSize,"restaurant","","");
 		ArrayList<RestaurantVO> rVos = adminService.getRestaurantList(pageVO.getStartIndexNo(), pageSize);
 		
 		model.addAttribute("rVos", rVos);
