@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.javagreenS_pjp.dao.HomeDAO">
+
+	<select id="getPopularSearch" resultType="com.spring.javagreenS_pjp.vo.KeywordVO">
+		select keyword,count(*) as cnt from keyword group by keyword order by cnt desc limit 5;	<!--인기 검색어  -->
+	</select>
+	
+	<select id="getRecentSearch" resultType="com.spring.javagreenS_pjp.vo.KeywordVO">
+		select * from keyword order by idx desc limit 5;	<!--최근 검색어  -->
+	</select>
+	
+	<select id="getKeywordSearch" resultType="com.spring.javagreenS_pjp.vo.RestaurantVO">
+		select * from restaurant order by idx limit 0,6;	<!--믿고 보는 맛집리스트  -->
+	</select>
+	
+	<select id="getKeywordSearch2" resultType="com.spring.javagreenS_pjp.vo.RestaurantVO">
+		select * from restaurant order by idx limit 6,6; <!--맛집 스토리  -->
+	</select>
+	
+	<select id="getFoodStory" resultType="com.spring.javagreenS_pjp.vo.RestaurantVO">
+		select * from restaurant order by idx limit 12,9; <!--에디터가 선정한 식당  -->
+	</select>
+	
+	<select id="getFoodStory2" resultType="com.spring.javagreenS_pjp.vo.RestaurantVO">
+		select * from restaurant order by idx limit 21,9; <!--TV에 나온 맛집  -->
+	</select>
+	
+	<select id="totRecCnt" resultType="int">	
+   		select count(*) from restaurant where restaurantAddress like concat('%',#{searchString},'%');
+ 	</select>
+ 	
+	<select id="getSearchList" resultType="com.spring.javagreenS_pjp.vo.RestaurantVO">
+   		select * from restaurant where restaurantAddress like concat('%',#{searchString},'%') order by idx desc limit #{startIndexNo},#{pageSize};
+ 	</select>
+ 	
+	<select id="getSearchInfor" resultType="com.spring.javagreenS_pjp.vo.RestaurantVO">
+		select *,(select bookMark from restaurantRecent where rsIdx = reset.idx and mid=#{mid}) as bookMarkOkNo 
+		from restaurant reset where restaurantName =#{restaurantName};
+
+ 	</select>
+ 	
+	<select id="getKakaoAddress" resultType="com.spring.javagreenS_pjp.vo.KakaoAddressVO">
+   		select * from kakaoAddress where address= #{restaurantName};
+ 	</select>
+	
+	<select id="getRecentCount" resultType="int">	<!--최근 방문한 매장 증가 처리  -->
+			select count(*) from restaurantRecent where mid = #{mid} order by idx desc limit 10;
+	</select> 
+	
+	<select id="getRestaurantRecentList" resultType="com.spring.javagreenS_pjp.vo.RestaurantVO">	<!--최근 식당 리스트 보여주기  -->
+			select distinct restaurantName, fSName, foodCategory, r.Idx from restaurantRecent as rc left join restaurant as r on rc.rsIdx = r.idx where rc.mid = #{mid} order by rc.idx desc limit 10;
+	</select>
+	
+	<select id="getRestaurantBookMarkList" resultType="com.spring.javagreenS_pjp.vo.RestaurantVO"> <!--즐겨찾기 식당 리스트  보여주기-->
+			select distinct restaurantName, fSName, foodCategory, r.Idx from restaurantRecent as rc left join restaurant as r on rc.rsIdx = r.idx where rc.mid = #{mid} and rc.bookMark='Ok' order by rc.idx desc limit 10;
+	</select>
+	
+	<select id="getFilter" resultType="com.spring.javagreenS_pjp.vo.RestaurantVO"> <!--필터를 이용한 식당 검색  -->
+  		select * from restaurant where restaurantAddress like concat('%', #{restaurantAddress},'%') and foodPrice= #{foodPrice} and foodCategory like concat('%',#{foodCategory},'%') and parking= #{parking} order by idx desc limit #{startIndexNo},#{pageSize};
+	</select>
+	
+	<select id="getRestaurantList" resultType="com.spring.javagreenS_pjp.vo.RestaurantVO"> <!--필터를 이용한 식당 검색  -->
+	  <if test="hashTag == '전체'">
+			select * from restaurant order by idx desc;
+	  </if>
+	  <if test="hashTag != '전체'">
+			select * from restaurant where hashTag like concat('%', #{hashTag},'%') order by idx desc;
+	  </if>
+	</select>
+	
+	<select id="getRestaurantRecent" resultType="int"> 
+		select count(*) from restaurantRecent where rsIdx=#{idx} and mid=#{mid};
+	</select>
+	
+	<select id="getSearchMenu" resultType="com.spring.javagreenS_pjp.vo.RestaurantVO"> 
+		select rc.foodPrice,rc.restaurantName,rc.foodName from restaurantCategory as rc left join restaurant as r on rc.restaurantName = r.restaurantName where rc.restaurantName = #{restaurantName};
+	</select>
+	
+	<select id="getReviewCnt" resultType="int"> 
+		select count(*) from review where restaurantName=#{restaurantName};
+	</select>
+	
+	<select id="getHashTagList" resultType="com.spring.javagreenS_pjp.vo.HashTagVO"> <!--필터를 이용한 식당 검색  -->
+		select hashTag,count(*) as hashTagCnt from hashTag group by hashTag order by hashTagCnt desc limit 8;
+	</select>
+	
+	<select id="getReviewCntVo" resultType="com.spring.javagreenS_pjp.vo.ReviewVO">
+		select distinct
+			(select count(*) from review where grade='A' and restaurantName = #{restaurantName}) as gradeA,
+			(select count(*) from review where grade='B' and restaurantName = #{restaurantName}) as gradeB,
+			(select count(*) from review where grade='C' and restaurantName = #{restaurantName}) as gradeC
+		from review where restaurantName = #{restaurantName}; 
+	</select>
+	
+	<insert id="getRestaurantInsert">
+		insert into restaurantRecent values(default,#{idx},#{mid},default);
+	</insert>
+	
+	<update id="setReadNum">	<!--식당 상세 페이지 조회수 증가  -->
+		update restaurant set readNum = readNum + 1 where idx = #{idx};	 
+	</update>
+	
+	<update id="setBookMark">	<!--식당 북마크+1씩 증가시키기 -->
+		update restaurant set bookMark = bookMark +1  where idx =#{idx};
+	</update>
+	
+	<update id="setBookMark2">	<!--식당 즐겨찾기 되었다면 'No'-> 'Ok'로 변경처리  -->
+		update restaurantRecent set bookMark ='OK' where restaurantRecent.rsIdx= #{idx};
+	</update>
+	
+	<update id="setReview">	<!--식당 리뷰수 +1씩 증가 시키기  -->
+		update restaurant set review = review +1 where idx = #{idx};
+	</update>
+	
+	<delete id="setRecentListDelete">
+		delete from restaurantRecent where mid = #{mid};
+	</delete>
+</mapper>

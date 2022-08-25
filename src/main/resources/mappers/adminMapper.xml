@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.javagreenS_pjp.dao.AdminDAO">
+
+ 	<select id="getMemList" resultType="com.spring.javagreenS_pjp.vo.MemberVO">
+ 		 select * from member2 order by idx desc limit #{startIndexNo}, #{pageSize};
+ 	</select>
+ 	
+ 	<select id="getRestaurantList" resultType="com.spring.javagreenS_pjp.vo.RestaurantVO">
+ 		 select * from restaurant order by idx desc limit #{startIndexNo}, #{pageSize};
+ 	</select>
+ 	
+ 	<select id="getRestaurantCreate" resultType="string">
+ 		select distinct restaurantName from restaurant;	 
+ 	</select>
+ 	
+ 	<select id="getFoodCreate" resultType="string">
+ 		select distinct foodName from foodMenu;
+ 	</select>
+ 	
+ 	<select id="getFoodPrice" resultType="string"> <!--음식 가격 값 호출하기  -->
+		select distinct foodPrice from foodMenu;
+ 	</select>
+ 	
+ 	<select id="getAddressName" resultType="com.spring.javagreenS_pjp.vo.KakaoAddressVO">
+		select * from kakaoAddress where address = #{address};
+ 	</select>
+ 	
+ 	<select id="getAddressNameList" resultType="com.spring.javagreenS_pjp.vo.KakaoAddressVO">
+		select * from kakaoAddress order by address;
+ 	</select>
+ 	
+ 	 <select id="getRecentlyVisitCount" resultType="com.spring.javagreenS_pjp.vo.ChartVO">
+    select substring(visitDate,1,10) as visitDate,visitCount from visit order by visitDate desc limit 7;
+  </select>
+  
+ 	<update id="adMemLevelChange">
+ 		update member2 set level= #{level} where idx = #{idx};
+ 	</update>
+ 	
+ 	<insert id="setRestaurantCreate">
+ 		insert into restaurant values(default,#{vo.restaurantName},#{vo.restaurantContent},#{vo.restaurantNumber},#{vo.foodCategory},#{vo.foodPrice},#{vo.restaurantAddress},#{vo.openingHours},#{vo.breakTime},#{vo.regularHoliday},default,#{vo.parking},default,default,default,default,#{vo.fName},#{vo.fSName},#{vo.fSize},default,#{vo.hashTag});
+ 	</insert>
+ 	
+ 	<insert id="setHashTagInput">
+		insert into hashTag values(#{hashTag});
+	</insert>
+	
+	<insert id="setFoodCreate">
+		insert into foodMenu values(default,#{vo.foodName},#{vo.foodCategory},#{vo.foodPrice});
+	</insert>
+	
+	<insert id="setFoodSaleCreate">
+		insert into restaurantCategory values(default, #{vo.restaurantName},#{vo.foodName},#{vo.foodPrice});
+	</insert>
+	
+	<insert id="setAddressName">
+		insert into kakaoAddress values(#{vo.address}, #{vo.latitude}, #{vo.longitude});
+	</insert>
+	
+	<insert id="qrCreate">
+		insert into qrCode values(default,#{vo.restaurantName},#{vo.qrCode},#{vo.moveUrl});
+	</insert>
+	
+	<delete id="adAddressDelete">
+		delete from kakaoAddress where address = #{address};
+	</delete>
+	
+	<delete id="setRestaurantDelete">
+		delete from restaurant where idx = #{idx};
+	</delete>
+ 	
+</mapper>

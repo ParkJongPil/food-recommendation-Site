@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.javagreenS_pjp.dao.ReviewDAO">
+
+	<insert id="setReviewInput">	<!--음식점에 리뷰 저장하기  -->
+		insert into review values(default,#{vo.restaurantName},#{vo.grade},default,#{vo.mid},#{vo.restaurantContent});
+	</insert>
+	
+	<select id="getReview" resultType="com.spring.javagreenS_pjp.vo.ReviewVO">	<!--음식점 이름이 같을 경우에만 리뷰 불러오기  -->
+<!-- 		select * from review where restaurantName; -->
+	select * from review as rc left join restaurant as r on rc.restaurantName = r.restaurantName where rc.restaurantName = #{restaurantName} order by rc.idx desc limit 10;
+	</select>
+</mapper>

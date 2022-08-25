@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.javagreenS_pjp.dao.NoticeDAO">
+	
+	<select id="getNoticeList" resultType="com.spring.javagreenS_pjp.vo.NoticeVO">
+		select * from notice order by idx asc;
+	</select>
+	
+	<select id="getNUpdate" resultType="com.spring.javagreenS_pjp.vo.NoticeVO">
+		select * from notice where idx= #{idx};
+	</select>
+	
+	<select id="getNotifyPopup" resultType="com.spring.javagreenS_pjp.vo.NoticeVO">
+  	select * from notice where popupSw = 'Y';
+	</select>
+	
+	<select id="getNoUpdate" resultType="com.spring.javagreenS_pjp.vo.NoticeVO">
+  	select * from notice where idx= #{idx};
+	</select>
+			
+	<insert id="setNoticeInput">
+		insert into notice values(default,#{vo.noticeTitle},#{vo.noticeContent},default,#{vo.popupSw});
+	</insert>
+	
+	<update id="setNoUpdateOk">
+		update notice set noticeTitle= #{vo.noticeTitle}, noticeContent= #{vo.noticeContent}, popupSw = #{vo.popupSw} where idx = #{vo.idx};
+	</update>
+	
+	<delete id="setDelete">
+		delete from notice where idx = #{idx};
+	</delete>
+</mapper>
