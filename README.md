@@ -24,34 +24,38 @@
 
 <h2>5. 주요 화면 구현</h2>
 
-![image](https://user-images.githubusercontent.com/102267949/186833112-c5b1b14b-4f4d-4004-862a-bf08a786018a.png)
 <h3>카카오 간편 로그인</h3><br/>
 
-![image](https://user-images.githubusercontent.com/102267949/186831751-7d53a8f6-7ee1-4c35-bcf2-79d39fccb524.png)
+![image](https://user-images.githubusercontent.com/102267949/186833112-c5b1b14b-4f4d-4004-862a-bf08a786018a.png)
+
 <h3>필터기로 식당 검색</h3><br/>
 
-![image](https://user-images.githubusercontent.com/102267949/186831845-c7bea23f-f87d-440f-a58f-cf9bee8c805a.png)
+![image](https://user-images.githubusercontent.com/102267949/186831751-7d53a8f6-7ee1-4c35-bcf2-79d39fccb524.png)
+
 <h3>키워드로 식당 검색</h3><br/>
 
-![image](https://user-images.githubusercontent.com/102267949/186832031-21c78f4b-5f45-4892-a226-1c468c6d91e7.png)
+![image](https://user-images.githubusercontent.com/102267949/186831845-c7bea23f-f87d-440f-a58f-cf9bee8c805a.png)
+
 <h3>최근 방문한 식당, 즐겨찾기한 식당 리스트 조회 & 삭제</h3><br/>
 
-![image](https://user-images.githubusercontent.com/102267949/186832150-f22364ff-329b-48ad-af84-1e00d9acfbb1.png)
-<h3>전체 식당 리스트 조회, 식당 등록 시많이 언급된 해시태그</h3><br/>
+![image](https://user-images.githubusercontent.com/102267949/186832031-21c78f4b-5f45-4892-a226-1c468c6d91e7.png)
 
-![image](https://user-images.githubusercontent.com/102267949/186832505-f223ca34-b85a-42df-8e3d-0f62bb5e0199.png)
+<h3>전체 식당 리스트 조회, 식당 등록 시 8번째까지 많이 등록된 해시태그</h3><br/>
+
+![image](https://user-images.githubusercontent.com/102267949/186832150-f22364ff-329b-48ad-af84-1e00d9acfbb1.png)
+
 <h3>공지사항 팝업 띄우기</h3><br/>
 
-![image](https://user-images.githubusercontent.com/102267949/186832567-69c36ef7-9d95-4b4d-b753-924e134a2638.png)
+![image](https://user-images.githubusercontent.com/102267949/186832505-f223ca34-b85a-42df-8e3d-0f62bb5e0199.png)
+
 <h3>식당 위치 등록</h3><br/>
 
-![image](https://user-images.githubusercontent.com/102267949/186832654-6e68e561-50bd-4f6c-9a33-a1b7026c4c2f.png)
+![image](https://user-images.githubusercontent.com/102267949/186832567-69c36ef7-9d95-4b4d-b753-924e134a2638.png)
+
 <h3>일일 방문자 횟수</h3><br/>
 
-![image](https://user-images.githubusercontent.com/102267949/186832671-9d66a3c5-4d12-4381-a78c-6af0d446dd95.png)
+![image](https://user-images.githubusercontent.com/102267949/186832654-6e68e561-50bd-4f6c-9a33-a1b7026c4c2f.png)
+
 <h3>식당 QR코드 생성</h3><br/>
 
-
-
-
-
+![image](https://user-images.githubusercontent.com/102267949/186832671-9d66a3c5-4d12-4381-a78c-6af0d446dd95.png)
